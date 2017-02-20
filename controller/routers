@@ -1,0 +1,26 @@
+var home = require('./home');
+//var users = require('./users');
+
+
+// Map routes to controller functions
+module.exports = function(app) {
+    // Render home page
+    app.get('/', home.show);
+
+    // Routes for account creation
+    /*app.get('/users/new', users.showCreate);
+    app.post('/check_fiscal',users.checkCodice);
+    //app.post('/users', users.create);
+    app.get('/login', users.getLogin);
+    app.get('/logout', users.logout);
+    app.get('/users/:id/verify', users.showVerify);
+    app.post('/users/:id/verify', users.verify);
+    app.post('/users/:id/resend', users.resend);
+    app.get('/users/:id', users.showUser);
+   
+    app.post('/thisphone',users.loginCreate);
+   //app.get('/users/:id/verifylogin', users.showVerify);
+   // app.post('/users/:id/verifylogin',users.resend);
+   app.get('/account/:id',users.getAccount);
+   app.post('/account/:id/profile',users.postUpdateProfile);*/
+};
