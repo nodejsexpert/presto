@@ -1,0 +1,15 @@
+var http = require('http');
+var mongoose = require('mongoose');
+//var config = require('./config');
+
+// Initialize database connection - throws if database connection can't be 
+// established
+mongoose.connect('mongodb://localhost:27017/presto');
+
+// Create Express web app
+var app = require('./webapp');
+
+// Create an HTTP server and listen on the configured port
+var server = http.createServer(app);
+server.listen(8080);
+console.log('Server listen on  8080');
