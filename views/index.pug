@@ -1,4 +1,4 @@
- doctype html(lang='en')
+doctype html(lang='en')
 head
     title Account Verification with Node.js and Express
     // Include Font Awesome Icons
@@ -29,73 +29,76 @@ head
       <link(rel='stylesheet', href='/css/materialize.min.css'>
   body
     // Bootstrap-powered nav bar
-    nav.mobile-nav
-      .navbar.navbar-inverse.navbar-transparent.navbar-fixed-top.opaque-navbar
-        .navbar-inner
-          .container
-            .navbar-header
-              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                i.fa.fa-bars
+    header#header(style="background-image: url('/14.jpg');width:100%;background-size:100% ")
+      nav#nav.mobile-nav
+        .navbar.navbar-inverse.navbar-transparent.navbar-fixed-top.opaque-navbar
+          .navbar-inner
+            .container
+              .navbar-header
+                button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                  i.fa.fa-bars
+                |                 
+                a.navbar-brand(href='#') Presto_Demo
               |                 
-              a.navbar-brand(href='#') Presto_Demo
-            |                 
-            #navbar.navbar-collapse.collapse
-              ul.nav.navbar-nav.pull-right
-                li
-                  a(href='/') Buy With presto 
-                |                         
-                li
-                  a(href='/') FAQ 
-                |                         
-                li
-                  a(href='/')  Business
-                |               
-                |                         
-                li
-                  a(href='/') About us
-                |                          
-                li
-                  a(href='/users/new') Sign Up
-                |                         
-                li
-                  a(href='/login') Sign In
-      |     
-      |      
-      #main-slider.slider
-        #slider_Wrapper
-          img.slide(src='/14.jpg')
-          |               
-          img.slide(src='/15.jpg')
-          |               
-          img.slide(src='/16.jpg')
-          |               
-          img.slide(src='/17.jpg')
-    header
-    section.section
-      .container-fluid
-        .row
-          .col-xs-12.col-md-4
-            h3 HI This Demo !No hidden fees
-            |                     
-            p hi there is no demo fees
-          |             
-          .col-xs-12.col-md-4
-            h3 HI This Demo !No hidden fees
-            |                     
-            p hi there is no demo fees
-          |             
-          .col-xs-12.col-md-4
-            h3 HI This Demo !No hidden fees
-            |                     
-            p hi there is no demo fees
-    |   
+              #navbar.navbar-collapse.collapse
+                ul.nav.navbar-nav.pull-right
+                  li
+                    a(href='/') Buy With presto 
+                  |                         
+                  li
+                    a(href='/') FAQ 
+                  |                         
+                  li
+                    a(href='/')  Business
+                  |               
+                  |                         
+                  li
+                    a(href='/') About us
+                  |                          
+                  li
+                    a(href='/users/new') Sign Up
+                  |                         
+                  li
+                    a(href='/login') Sign In
+        |     
+        |      
+        #main-slider.slider
+          #slider_Wrapper
+            img.slide(src='/14.jpg')
+            |               
+            img.slide(src='/15.jpg')
+            |               
+            img.slide(src='/16.jpg')
+            |               
+            img.slide(src='/17.jpg')
+    |  
+    div
+      a.scroll-down(href='#', address='true')
+    #content
+      section.section
+        .container-fluid
+          .row
+            .col-xs-12.col-md-4
+              h3 HI This is Demo !No hidden fees
+              |                     
+              p hi there is no demo fees
+            |             
+            .col-xs-12.col-md-4
+              h3 HI This is Demo !No hidden fees
+              |                     
+              p hi there is no demo fees
+            |             
+            .col-xs-12.col-md-4
+              h3 HI This is Demo !No hidden fees
+              |                     
+              p hi there is no demo fees
     footer.footer_bottom
       .container-fluid
         .row
-          .col-xs-6.col-md-3.col-lg-2
+          .col-xs-6.col-sm-3.col-lg-2
             a.navbar-brand(href='#') Presto_Demo
           |             
-          .col-xs-6.col-md-3.col-lg-2
+          .col-xs-6.col-sm-3.col-lg-2
             h5 FOR CONSUMERS
             |                 
             ul
@@ -105,7 +108,7 @@ head
               li
                 a(href='/') FAQs 
           |             
-          .col-xs-6.col-md-3.col-lg-2
+          .col-xs-6.col-sm-3.col-lg-2
             h5 Business
             |                 
             ul
@@ -122,7 +125,7 @@ head
               li
                 a(href='/') Resources
           |             
-          .col-xs-6.col-md-3.col-lg-2
+          .col-xs-6.col-sm-3.col-lg-2
             h5 presto
             |                     
             ul
@@ -135,7 +138,7 @@ head
               li
                 a(href='/') Press
           |             
-          .col-xs-6.col-md-3.col-lg-2
+          .col-xs-6.col-sm-3.col-lg-2
             h5 Help
             |                 
             ul
@@ -148,7 +151,7 @@ head
               li
                 a(href='/') Contac Us
           |             
-          .col-xs-6.col-md-3.col-lg-2
+          .col-xs-6.col-sm-3.col-lg-2
             ul.social-icons
               h5 Follow Us 
               |         
@@ -175,6 +178,4 @@ head
               li
                 a.social-icon(href='')
                   i.fa.fa-google-plus
-    |          
-    #main.container
-      .message-list
+
