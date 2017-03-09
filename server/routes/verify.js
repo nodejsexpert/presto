@@ -341,7 +341,7 @@ exports.loan = function(request, response) {
                       setTimeout(function(){
                           if(t!=0){
                               console.log("I am in here");
-                      if((datetoday<new Date()) && (new Date().getDate()-datetoday.getDate()==0)){
+                      if((datetoday<new Date()) && (new Date()-datetoday==0)){
                       calculateLoan(cr,loan,t); 
                       datetoday=new Date();
                     }}
