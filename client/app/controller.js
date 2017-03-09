@@ -36,11 +36,11 @@
     .module('boilerplate')
    .controller('SignupController', ['$scope', '$routeParams' ,'$http','$state','$sce','$rootScope','dataShare',
     function($scope, $routeParams,$http,$state,$sce,$rootScope,dataShare) {
-                $rootScope.id = '';
+         /*       $rootScope.id = '';
                 $scope.$on('data_shared',function(){
                 var id =  dataShare.getData();    
                 $rootScope.id = id;
-        });
+        });*/
       $scope.getInfo =function(){
           var dataobj= {firstname: $scope.firstname,
               lastname: $scope.lastname,
@@ -110,7 +110,7 @@
           console.log(dataobj);
          $http({
           method : "POST",
-          url : "http://localhost:3030/verify/58bf9d01ff460c12b97f1b1d/users",
+          url : "http://localhost:3030/verify/"+$rootScope.id+"/users",
          data: dataobj
     }).then(function success(response) {
                  
@@ -138,17 +138,17 @@
     .module('boilerplate')
     .controller('RouteController', ['$scope', '$routeParams','$sce','$http','$filter','dataShare','$rootScope','ModalService',
     function($scope, $routeParams,$sce,$http,$filter,dataShare,$rootScope,ModalService,modal) {
-                $scope.id = '';
+              /*  $scope.id = '';
                 $scope.$on('data_shared',function(){
                 var id =  dataShare.getData();    
                 $scope.id = id;
-        });
+        });*/
         $scope.datas = [];
         $scope.userid=$scope.id;
         console.log($scope.id);
              $http({
         method : "GET",
-        url : "http://localhost:3030/getinfo/58bf9d01ff460c12b97f1b1d/users",
+        url : "http://localhost:3030/getinfo/"+$rootScope.id+"/users",
         params: {message : "hello"}
     }).then(function success(response) {
                 $scope.id=response.data.id;
@@ -247,7 +247,7 @@
           console.log(dataobj);
          $http({
         method : "POST",
-        url : "http://localhost:3030/user/58bf9d01ff460c12b97f1b1d/update",
+        url : "http://localhost:3030/user/"+$rootScope.id+"/update",
         data: dataobj
     }).then(function success(response) {
       
