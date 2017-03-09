@@ -1,0 +1,72 @@
+<link rel="stylesheet" media="screen" href="//www.authy.com/form.authy.min.css">
+<style>
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer; 
+    color: white;
+    background-color: steelblue;
+    border-color: steelblue;
+    border-style: double;
+    box-shadow: 5px 0 5px lightslategrey;
+    width: 200px;
+    height: 50px;
+}
+.header{
+    box-shadow: 4px 0 4px lightslategrey;
+}
+</style>
+<!-- Main navigation -->
+<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <div id="inner-header" class="wrap container cf">
+
+        <!-- logo -->
+        <h1 id="logo" class="text-hide h1 pull-left" itemscope itemtype="http://schema.org/Organization">
+            <a href="#/" rel="nofollow"><img src="" alt=""></a>
+        </h1>
+
+        <!-- hamburger icon -->
+        <responsive-nav></responsive-nav>
+
+        <!-- nav -->
+        <nav role="navigation" class="main-nav text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <ul class="menu cf">
+                <li class="pull-left"><a href="#/home" style="font-size: 20px;">Presto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h2 class="text-center">Register</h2>
+<center><h5> Already have an account? <a href="#/login" style="color: dodgerblue;"> Sign In </a> </h5></center>
+<!-- slider directive -->
+<div class="container cf" style="background-image:url(/images/unsplash-woodrow-walden-39673.jpg);padding-top: 20px; padding-bottom: 20px;">
+    <div>
+        <center>
+        <form name="signupForm" ng-model="signupForm" method="POST">
+            
+            <input type="text" name="firstname" ng-model="firstname" placeholder="Firstname" required/>
+            <input type="text" name="lastname" ng-model="lastname" placeholder="Lastname" required/>
+            <select style="width:100px;margin-left:-300px;" name="sesso" ng-model="sesso">
+                <option value="F">Female </option>
+                <option value="M">Male </option>
+            </select>
+            <input type="text" name="dob" ng-model="dob" placeholder="mm/dd/yyyy" Mask="19/39/2999" clean="true" restrict ="reject" style="margin-top:-40px; margin-right:-105px; width: 295px"  required/>
+            <input type="text" name="location" ng-model="location" placeholder="Location" required/>
+            <input type="email" name="emails" ng-model="emails" placeholder="Email" required/>
+            <input type="text" name="codice" ng-model="codice" placeholder="Codice Fiscale" required/>
+             <select id="authy-countries" name="countryCode" ng-model="countryCode" placeholder="Country Code">
+             </select>
+            <input type="text" name="phone" ng-model="phone" placeholder="Phone Number" Mask="(999) 999-9999" clean="true" restrict="reject"  required/>
+            <button type="submit" value="submit" ng-click="getInfo()">Create Account</button>
+        </form>
+    </div>
+   <center> <h4><a href="#/help" >Need help?</a> </h4></center>
+</div>
+
+<div class="text-center">
+    <small>Images courtesy of <a target="_blank" href="http://unsplash.com">unsplash.com</a></small>
+</div>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+ <script src="http://www.authy.com/form.authy.min.js"></script>
+
+
+

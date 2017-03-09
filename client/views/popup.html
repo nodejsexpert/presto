@@ -1,0 +1,33 @@
+  <script type="text/ng-template" id="modal.html">
+         <div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Send us your query</h4>
+              </div>
+              <div class="modal-body">
+                <form action="http://localhost:3030/userquery" name="queryForm" ng-model="queryForm" method="POST">
+             <input type="email" name="emails" ng-model="emails" placeholder="Email" required>
+            <div class="error" ng-show="queryForm.emails.$dirty && queryForm.emails.$invalid" style="width:400px; background-color: indianred; margin-bottom:20px;opacity:0.7;color:white;">Invalid email address</div>
+            <select  name="problem" ng-model="problem">
+                <option value="gen">General Help </option>
+                <option value="pay">Payment Issue </option>
+                <option value="tech">Technical Issue </option>
+                <option value="feed">Feedback </option>
+                <option value="oth">Other </option>
+            </select>
+            <textarea name="message" ng-model="message" placeholder="Send us your query" style="margin-top: 20px; margin-bottom: 20px; width:400px"> </textarea>
+            <button type="submit" value="submit" ng-disabled="queryForm.emails.$invalid">Submit</button>
+            </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+     </script>
+     <script src="https://code.angularjs.org/1.4.9/angular.min.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script>

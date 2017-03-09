@@ -1,0 +1,212 @@
+<style>
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer; 
+    color: white;
+    background-color: steelblue;
+    border-color: steelblue;
+    border-style: double;
+    box-shadow: 5px 0 5px lightslategrey;
+    width: 200px;
+    height: 50px;
+}
+.header{
+    background-color:cornflowerblue;
+    box-shadow: 0 0 2px lightslategrey;
+    height: 200px;
+}
+.imageholder{
+ width: 300px;
+ height: 300px;
+ box-shadow: 2px 0 2px lightslategrey;
+ border-radius: 15px;
+ margin-top: 20px;
+ margin-left: 50px;
+}
+.ul h2{
+    float: left;
+    margin-top: 50px;
+    color: white;
+}
+.vertical-menu-bar{
+  float: left;
+  position: absolute;
+  margin-left: -80px;
+  margin-top: -200px;
+  width: 80px;
+  background-color: white;
+  box-shadow: 0 5px 2px lightslategrey;
+  text-align: center;
+  padding-bottom: 100%
+
+}
+.vertical-menu-bar img:hover{
+box-shadow: 5px 5px 5px cornflowerblue;
+}
+.vertical-menu-bar img:active{
+  box-shadow: 5px 5px 5px palevioletred; 
+}
+#inner-header img:hover {
+box-shadow: 5px 5px 5px lightslategray; 
+}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    margin-left: -50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.active{
+    background-color: cornflowerblue;
+    color: white;
+    width: 200px;
+}
+.menuactive {
+    box-shadow: cornflowerblue;
+}
+.pull-left a:hover{
+ background-color: cornflowerblue;
+ width: 150px;
+margin-left:-50px;
+ color: white;
+ 
+}
+</style>
+
+<!-- Main navigation -->
+<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <div id="inner-header" class="wrap container cf">
+
+        <!-- logo -->
+        <h1 id="logo" class="text-hide h1 pull-left" itemscope itemtype="http://schema.org/Organization">
+            <a href="#/" rel="nofollow"><img src="" alt=""></a>
+        </h1>
+
+        <!-- hamburger icon -->
+        <responsive-nav></responsive-nav>
+
+        <!-- nav -->
+        <nav role="navigation" class="main-nav text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <ul class="menu cf">
+               <h2 style="color:white">Loans</h2>
+            </ul>  
+        </nav> 
+        
+        <h4 style="float:right; margin-top: 70px; color: white"> {{fname+lname}}</h4>  
+       <div class="dropdown" style=" margin-top: 50px; float: right; margin-right: -180px;">
+        
+        <a href="#"> <img src="images/user.png" style="width:40px; height: 40px;"></a>
+        <div class="dropdown-content">
+          <a href=#/settings>Settings</li>
+          <a href ng-click="show()">Help</a>
+          <a href="#/logout">Sign Out</a>
+        </div>
+</div>
+    </div>
+</header>
+<div class="vertical-menu-bar">
+  <ul style="margin-top:200px;">
+      <li> <a href=#/dashboard><img src="/images/shop.png" style="width:40px; height: 40px; margin-top: 10px;"></a></li>
+       <li> <a href="#/loans" class="menuactive"><img src="/images/loan.png" style="width:40px; height: 40px; margin-top: 20px;"></a></li>
+  </ul>
+</div>
+    <div id="inner-header" class="wrap container cf" style="box-shadow: 1px 0 2px lightslategrey; width:99.9%">
+
+        <!-- logo -->
+        <h1 id="logo" class="text-hide h1 pull-left" itemscope itemtype="http://schema.org/Organization">
+            <a href="#/" rel="nofollow"><img src="" alt=""></a>
+        </h1>
+
+        <!-- hamburger icon -->
+        <responsive-nav></responsive-nav>
+
+        <!-- nav -->
+        <nav role="navigation" class="main-nav text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <ul class="menu cf">
+                <li class="pull-left"><a href="#/home">Active Loans</a></li>
+                <li class="pull-left"><a href="#/home">Past Loans</a></li>
+                <li class="pull-left"><b>Balance:&nbsp; {{credit}}</b></li>
+            </ul>
+        </nav>
+    </div>
+    <div ng-repeat="item in datas track by index"><!--working on this -->
+  <table>
+         <tr>
+          <td >{{item.pname}}</td> 
+          <td>{{item.pcost}} </td>
+          </tr>
+  </table>
+    </div><!--ends here -->
+
+ 
+
+            </div>
+        </li>
+    </ul>
+            </tr>
+        </table>
+    </div>
+  <!--POPUP SCRIPT-->
+ <script type="text/ng-template" id="modal.html">
+         <div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Send us your query</h4>
+              </div>
+              <div class="modal-body">
+            <form name="queryForm" ng-model="queryForm" method="POST">
+            <input type="email" name="emails" ng-model="emails" placeholder="Email" required>
+            <div class="error" ng-show="queryForm.emails.$dirty && queryForm.emails.$invalid" style="width:400px; background-color: indianred; margin-bottom:20px;opacity:0.7;color:white;">Invalid email address</div>
+            <select  name="problem" ng-model="problem">
+                <option value="gen">General Help </option>
+                <option value="pay">Payment Issue </option>
+                <option value="tech">Technical Issue </option>
+                <option value="feed">Feedback </option>
+                <option value="oth">Other </option>
+            </select>
+            <textarea name="message" ng-model="message" placeholder="Send us your query" style="margin-top: 20px; margin-bottom: 20px; width:400px"> </textarea>
+            <button type="submit" value="submit" ng-disabled="queryForm.emails.$invalid" ng-click="query('Cancel')">Submit</button>
+            </form>
+              </div>
+            </div>
+          </div>
+        </div>
+     </script>
+     <span ng-include="'modal.html'"></span>
+     <script src="https://code.angularjs.org/1.4.9/angular.min.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script>

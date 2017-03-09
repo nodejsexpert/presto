@@ -1,0 +1,53 @@
+<style>
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer; 
+    color: white;
+    background-color: steelblue;
+    border-color: steelblue;
+    border-style: double;
+    box-shadow: 5px 0 5px lightslategrey;
+    width: 200px;
+    height: 50px;
+}
+.header{
+    box-shadow: 4px 0 4px lightslategrey;
+}
+</style>
+<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <div id="inner-header" class="wrap container cf">
+
+        <!-- logo -->
+        <h1 id="logo" class="text-hide h1 pull-left" itemscope itemtype="http://schema.org/Organization">
+            <a href="#/" rel="nofollow"><img src="" alt=""></a>
+        </h1>
+
+        <!-- hamburger icon -->
+        <responsive-nav></responsive-nav>
+
+        <!-- nav -->
+        <nav role="navigation" class="main-nav text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <ul class="menu cf">
+               <li class="pull-left"><a href="#/home" style="font-size: 20px;">Presto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h2 class="text-center">Sign In</h2>
+
+<!-- slider directive -->
+<div class="container cf" style="background-image:url(/images/unsplash-woodrow-walden-39673.jpg);padding-top: 20px; padding-bottom: 20px; height: 450px;">
+    <div>
+        <center>
+        <form name=loginForm method="POST">
+          <input type="text" name="phone"  Mask="(999) 999-9999" ng-model="phone" placeholder="Phone Number" clean="true" restrict="reject"  required/>
+          <button type="submit" value="submit" ng-click="sendInfo()" ng-disabled="loginForm.$invalid">Sign In</button>
+        </form>
+    </div>
+    <center><h4 style="color: white"><a href="#/help" >Need help?</a> </h4></center>
+</div>
+
+<div class="text-center">
+    <small>Images courtesy of <a target="_blank" href="http://unsplash.com">unsplash.com</a></small>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>

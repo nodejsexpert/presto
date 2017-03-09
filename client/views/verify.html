@@ -1,0 +1,54 @@
+<style>
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer; 
+    color: white;
+    background-color: steelblue;
+    border-color: steelblue;
+    border-style: double;
+    box-shadow: 5px 0 5px lightslategrey;
+    width: 200px;
+    height: 50px;
+}
+</style>
+<!-- Main navigation -->
+<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <div id="inner-header" class="wrap container cf">
+
+        <!-- logo -->
+        <h1 id="logo" class="text-hide h1 pull-left" itemscope itemtype="http://schema.org/Organization">
+            <a href="#/" rel="nofollow"><img src="" alt=""></a>
+        </h1>
+
+        <!-- hamburger icon -->
+        <responsive-nav></responsive-nav>
+
+        <!-- nav -->
+        <nav role="navigation" class="main-nav text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <ul class="menu cf">
+                <li class="pull-left"><a href="#/home">Presto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h2 class="text-center">Enter the verification code</h2>
+
+<!-- slider directive -->
+<div class="container cf" style="background-image:url(/images/unsplash-woodrow-walden-39673.jpg);padding-top: 20px; padding-bottom: 20px; height: 450px;">
+    <div>
+        <center>
+     <div>
+        <form name=verifyForm method="POST" >
+            <input type="hidden" name=user ng-model=user value="58bf9d01ff460c12b97f1b1d">
+          <input type="text" name="code" ng-model="code" placeholder="Verification Code" required/>
+          <div class="error" ng-show="verifyForm.code.$dirty && verifyForm.code.$invalid" style="width:400px; background-color: indianred; margin-bottom:20px;opacity:0.7;color:white;">Invalid phone number</div>
+          <button type="submit" value="submit" ng-click="sendCode()" ng-disabled="verifyForm.$invalid">Confirm Registeration</button>
+        </form>
+    </div>
+</div>
+</div>
+
+<div class="text-center">
+    <small>Images courtesy of <a target="_blank" href="http://unsplash.com">unsplash.com</a></small>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
