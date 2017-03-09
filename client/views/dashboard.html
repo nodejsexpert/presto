@@ -267,8 +267,7 @@ box-shadow: 5px 5px 5px lightslategray;
               </div>
               <div class="modal-body">
             <form name="queryForm" ng-model="queryForm" method="POST">
-            <input type="email" name="emails" ng-model="emails" placeholder="Email" required>
-            <div class="error" ng-show="queryForm.emails.$dirty && queryForm.emails.$invalid" style="width:400px; background-color: indianred; margin-bottom:20px;opacity:0.7;color:white;">Invalid email address</div>
+            <input type="email" name="emails" ng-model="emails" placeholder="Email" required/>
             <select  name="problem" ng-model="problem">
                 <option value="gen">General Help </option>
                 <option value="pay">Payment Issue </option>
