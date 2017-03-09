@@ -117,10 +117,10 @@
                  $scope.message=response.data.msg;
 
                  alert($scope.message);
-                  $scope.id = $rootScope.id;
-                 $scope.send = function(){
+            
+               /*  $scope.send = function(){
                     dataShare.sendData($scope.id);
-                 }
+                 }*/
                  $state.go('dashboard');              
             },function error(response,staus) {
                 alert("Failed");
@@ -144,8 +144,6 @@
                 $scope.id = id;
         });*/
         $scope.datas = [];
-        $scope.userid=$scope.id;
-        console.log($scope.id);
              $http({
         method : "GET",
         url : "http://localhost:3030/getinfo/"+$rootScope.id+"/users",
