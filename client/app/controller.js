@@ -61,10 +61,14 @@
     }).then(function success(response) {
       
                 $scope.message=response.data.msg;
-                 alert($scope.message);
                  $rootScope.id=response.data.id;
+               if(response.data.msg){
+                     alert(response.data.msg);
                  $state.go('verify');
-                 console.log($rootScope.id);              
+                }
+                else{
+                    alert(response.data.ermsg);
+                }           
             },function error(response,staus) {
                 alert("Failed");
                
@@ -82,10 +86,14 @@
     }).then(function success(response) {
       
                 $scope.message=response.data.msg;
-                 alert($scope.message);
-                $rootScope.id=response.data.id;
+               $rootScope.id=response.data.id;
+                  if(response.data.msg){
+                    alert(response.data.msg);
                   $state.go('verify');
-                  console.log($rootScope.id); 
+                }
+                else{
+                    alert(response.data.ermsg);
+                }                 
             },function error(response,staus) {
                 alert("Failed");
                
