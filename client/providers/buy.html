@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="styles/bootstrap.css" />
+<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader" style="box-shadow: 3px 0 3px lightslategrey;">
+    <div id="inner-header" class="wrap container cf">
+
+        <!-- logo -->
+        <h1 id="logo" class="text-hide h1 pull-left" itemscope itemtype="http://schema.org/Organization">
+            <a href="#/" rel="nofollow"><img src="" alt=""></a>
+        </h1>
+
+        <!-- hamburger icon -->
+        <responsive-nav></responsive-nav>
+
+        <!-- nav -->
+        <nav role="navigation" class="main-nav text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <ul class="menu cf">
+               <h2 style="color:black">checkout</h2>
+            </ul>  
+        </nav>      
+       
+</div>
+    </div>
+</header>
+<div class ="cart" style="height: 400px; width:400px; background-color:aliceblue; float:right; margin-top: 30px;">
+   <form>
+    <h4> Order summary: </h4>
+   <input type="text" name ="product" ng-model="productname" placeholder ="product name"> 
+   <input type ="text" name="price" ng-model="productcost" placeholder="Cost">
+   <label> Interest Rate</label>
+   <select name=time ng-model="producttime">
+       <option value=3> 3 Months </option>
+       <option value=6> 6 Months </option>
+       <option value=12> 12 Months </option>
+   </select> 
+          
+</div>
+<div class="buy" style="margin-top: 30px;">
+    <h2>Buy with Presto</h2>
+   <ul>
+       
+          
+       <li><a href="#/loanprov" ng-click="ProductDetails(productname,productcost,producttime)" > <h5> Easy monthly payments </h5></a></li>
+       <li><a href="#/loanprov" ng-click="ProductDetails(productname,productcost,producttime)" > <h5> Flexible payments </h5></a></li>
+       
+   </ul>
+     </form>
