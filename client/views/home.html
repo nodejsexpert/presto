@@ -56,7 +56,7 @@ button, html input[type=button], input[type=reset], input[type=submit] {
              <select id="authy-countries" name="countryCode" ng-model="countryCode" placeholder="Country Code">
              </select>
             <input type="text" name="phone" ng-model="phone" placeholder="Phone Number" Mask="(999) 999-9999" clean="true" restrict="reject"  required/>
-            <button type="submit" value="submit" ng-click="getInfo()">Create Account</button>
+            <button type="submit" value="submit" ng-disabled="signupForm.$invalid" ng-click="getInfo()">Create Account</button>
         </form>
     </div>
    <center> <h4><a href="#/help" >Need help?</a> </h4></center>
