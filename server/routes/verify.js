@@ -36,14 +36,14 @@ exports.checkCodice = (req,res,next) =>{
         
     });
     if(user.length==0){
-       res.send({msg:"The user does not exist"});
+       res.send({ermsg:"The user does not exist"});
     }
     else{
        res.send({msg:"Confirm your ID",id: user._id});
     }
             user.sendAuthyToken(function(err) {
                 if (err) {
-                    res.send({msg: 'There was a problem sending '
+                    res.send({ermsg: 'There was a problem sending '
                         + 'your token - sorry :('+err});
                 }
             });
@@ -64,7 +64,7 @@ exports.checkCodice = (req,res,next) =>{
 exports.create = function(request, response) {
          User.find({phone:request.body.phone},function(err,user){ 
         if(user.length==0){
-            response.send({msg:"User not found. Signup."});
+            response.send({ermsg:"User not found. Signup."});
         }
      
    
@@ -87,7 +87,7 @@ exports.create = function(request, response) {
             // show success page
                  users.sendAuthyLoginToken(authID,function(err) {
                 if (err) {
-                    response.send({msg:"i think there's some problem.."});
+                    response.send({ermsg:"i think there's some problem.."});
                 }
 
                 // Send to token verification page
@@ -96,7 +96,7 @@ exports.create = function(request, response) {
         }
         else{
             User.remove({_id:strJson},function(err){if(err){console.log("something is wrong."+strJson)}});
-            response.send({msg:"The user is not verified. Please Signup Again."});
+            response.send({ermsg:"The user is not verified. Please Signup Again."});
         }  
        
         }
@@ -111,7 +111,7 @@ exports.verify = function(request, response) {
     // Load user model
     User.findById(request.params.id, function(err, doc) {
         if (err || doc.length==0) {
-            response.send({msg:'User not found for this ID.'});
+            response.send({ermsg:'User not found for this ID.'});
         }
 
         // If we find the user, let's validate the token they entered
@@ -124,7 +124,7 @@ exports.verify = function(request, response) {
     function postVerify(err) {
         if (err) {
             console.log(err);
-            response.send({msg:'The token you entered was invalid - please retry.'});
+            response.send({ermsg:'The token you entered was invalid - please retry.'});
         }
 
         // If the token was valid, flip the bit to validate the user account
@@ -138,7 +138,7 @@ exports.verify = function(request, response) {
     // after we save the user, handle sending a confirmation
     function postSave(err) {
         if (err) {
-            response.send({msg:'There was a problem validating your account '
+            response.send({ermsg:'There was a problem validating your account '
                 + '- please enter your token again.'});
         }
 
@@ -151,7 +151,7 @@ exports.verify = function(request, response) {
 
     // respond with an error
     function die(message) {
-        response.send({msg:"The user is not available. Kindly signup."});
+        response.send({ermsg:"The user is not available. Kindly signup."});
     }
 };
 
