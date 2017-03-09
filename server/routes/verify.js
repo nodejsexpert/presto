@@ -51,12 +51,12 @@ exports.checkCodice = (req,res,next) =>{
     
       }
       else{
-       res.send({msg:"Fiscal Code doesn't match"});
+       res.send({ermsg:"Fiscal Code doesn't match"});
        }
  }
     else
  {
-     res.send({msg:" The phone number already exists."});
+     res.send({ermsg:" The phone number already exists."});
  }
    
  });
