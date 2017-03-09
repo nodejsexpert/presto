@@ -162,14 +162,29 @@ margin-left:-50px;
             </ul>
         </nav>
     </div>
-    <div ng-repeat="item in datas track by index"><!--working on this -->
-  <table>
-         <tr>
-          <td >{{item.pname}}</td> 
-          <td>{{item.pcost}} </td>
-          </tr>
-  </table>
-    </div><!--ends here-->
+    <div id="DisplayTable">
+    <table style="width: 80%" align="center" ng-repeat="x in product">
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Cost
+            </th>
+            <th>
+                Purchase Date
+            </th>
+        </tr>
+        <!-- I saw $scope.addRoute() has two arguments -->
+        <!-- so, I assumed that source.length === destination.length -->
+        <tr ng-repeat="pname in x.pname track by $index">
+            <td>{{x.pname[$index+1]}}</td>
+            <td>{{x.pcost[$index+1]}}</td>
+            <td>{{x.pdate[$index+1]}}</td>
+        </tr>
+
+    </table>
+</div>
   <!--POPUP SCRIPT-->
  <script type="text/ng-template" id="modal.html">
          <div class="modal fade">
