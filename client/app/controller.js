@@ -138,6 +138,7 @@
     .module('boilerplate')
     .controller('RouteController', ['$scope', '$routeParams','$sce','$http','$filter','dataShare','$rootScope','ModalService',
     function($scope, $routeParams,$sce,$http,$filter,dataShare,$rootScope,ModalService,modal) {
+      $scope.bal = 0;
               /*  $scope.id = '';
                 $scope.$on('data_shared',function(){
                 var id =  dataShare.getData();    
