@@ -19,5 +19,7 @@ router.post('/loan',verifyController.loan);
 //router.get('/users/:id/user',verifyController.showUser);
 router.get('/getinfo/:id/users',verifyController.sendInfo);
 router.post('/user/:id/update',verifyController.updateInfo);
+router.post('/user/:id/wallet',verifyController.wallet);
+
 
 module.exports = router;
