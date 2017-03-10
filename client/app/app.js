@@ -106,6 +106,22 @@ $routeProvider
       templateUrl:'views/loanprovide.html',
       controller: 'LoanController',
     })
+     .when('/addmoney',{
+       templateUrl:'views/addmoney.html',
+       controller:'RouteController'
+     })
+     .when('/cards',{
+       templateUrl:'views/cards.html',
+       controller:'RouteController'
+     })
+     .when('/history',{
+       templateUrl:'views/history.html',
+       controller:'RouteController'
+     })
+     .when('/walletsettings',{
+       templateUrl:'views/walletsettings.html',
+       controller:'RouteController'
+     })
       .otherwise({
         redirectTo: '/'
       });
