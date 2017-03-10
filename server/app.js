@@ -70,6 +70,7 @@ app.use('/users/'+users._id+'/user',index);
 app.use('/getinfo/'+users._id+'/users',index);
 app.use('/user/'+users._id+'/update',index);
 app.use('/user/'+users._id+'/query',index);
+app.use('/user/'+users._id+'/wallet',index);
 app.listen(app.get('port'), () => {
   console.log('App is running at http://localhost:%d in %s mode', app.get('port'), app.get('env'));
   console.log('  Press CTRL-C to stop\n');
