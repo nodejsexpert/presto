@@ -37,14 +37,17 @@ exports.checkCodice = (req,res,next) =>{
     });
     if(user.length==0){
        res.send({ermsg:"The user does not exist"});
+       res.end();
     }
     else{
        res.send({msg:"Confirm your ID",id: user._id});
+       res.end();
     }
             user.sendAuthyToken(function(err) {
                 if (err) {
                     res.send({ermsg: 'There was a problem sending '
                         + 'your token - sorry :('+err});
+                    res.end();
                 }
             });
         
@@ -52,11 +55,13 @@ exports.checkCodice = (req,res,next) =>{
       }
       else{
        res.send({ermsg:"Fiscal Code doesn't match"});
+          res.end();
        }
  }
     else
  {
      res.send({ermsg:" The phone number already exists."});
+     res.end();
  }
    
  });
@@ -65,6 +70,7 @@ exports.create = function(request, response) {
          User.find({phone:request.body.phone},function(err,user){ 
         if(user.length==0){
             response.send({ermsg:"User not found. Signup."});
+            response.end();
         }
      
    
@@ -88,6 +94,7 @@ exports.create = function(request, response) {
                  users.sendAuthyLoginToken(authID,function(err) {
                 if (err) {
                     response.send({ermsg:"i think there's some problem.."});
+                    response.end();
                 }
 
                 // Send to token verification page
@@ -97,6 +104,7 @@ exports.create = function(request, response) {
         else{
             User.remove({_id:strJson},function(err){if(err){console.log("something is wrong."+strJson)}});
             response.send({ermsg:"The user is not verified. Please Signup Again."});
+            response.end();
         }  
        
         }
@@ -112,6 +120,7 @@ exports.verify = function(request, response) {
     User.findById(request.params.id, function(err, doc) {
         if (err || doc.length==0) {
             response.send({ermsg:'User not found for this ID.'});
+            response.end();
         }
 
         // If we find the user, let's validate the token they entered
@@ -125,6 +134,7 @@ exports.verify = function(request, response) {
         if (err) {
             console.log(err);
             response.send({ermsg:'The token you entered was invalid - please retry.'});
+            response.end();
         }
 
         // If the token was valid, flip the bit to validate the user account
@@ -140,18 +150,21 @@ exports.verify = function(request, response) {
         if (err) {
             response.send({ermsg:'There was a problem validating your account '
                 + '- please enter your token again.'});
+            response.end();
         }
 
         // Send confirmation text message
         var message = 'You did it! Signup complete :)';
         user.sendMessage(message, function(err) {
         response.send({msg:"successfull!",_id:id,fname:user.firstname,lname:user.lastname});
+            response.end();
     });
     }
 
     // respond with an error
     function die(message) {
         response.send({ermsg:"The user is not available. Kindly signup."});
+        response.end();
     }
 };
 
@@ -181,6 +194,7 @@ User.find({_id:req.params.id},function(err,user){
         if(err||!user){
             console.log("something is wrong");
             res.send({msg:"The user is not available."})
+            res.end();
             return next();
         }
      
@@ -237,6 +251,7 @@ User.find({_id:req.params.id},function(err,user){
      });
      function sendInfos(data){
          res.send(data);
+         
      }
 };
 exports.updateInfo=(req,res,next) =>{
@@ -361,3 +376,7 @@ exports.loan = function(request, response) {
      });
    
 };
+ exports.wallet = function(request, response) {
+     response.send({msg:"This works"});
+     response.end();
+ };
