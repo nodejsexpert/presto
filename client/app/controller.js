@@ -256,7 +256,90 @@
                
             });
      }
+$scope.addWallet = function(){
+    var dataobj ={amount:$scope.amount
 
+    }
+    console.log(dataobj);
+        $http({
+        method : "POST",
+        url : "http://localhost:3030/user/"+$rootScope.id+"/wallet",
+        data: dataobj,
+        params:"money"
+    }).then(function success(response) {
+      
+                $scope.message=response.data.msg;
+                 alert($scope.message); 
+            },function error(response,staus) {
+                alert("Failed");
+               
+            });
+
+}
+$scope.addCard = function(){
+    var dataobj ={cardno:$scope.cardno,
+        month: $scope.month,
+        year: $scope.year,
+        cvv: $scope.cvv
+
+    }
+    console.log(dataobj);
+        $http({
+        method : "POST",
+        url : "http://localhost:3030/user/"+$rootScope.id+"/wallet",
+        data: dataobj,
+        params: "card"
+    }).then(function success(response) {
+      
+                $scope.message=response.data.msg;
+                 alert($scope.message); 
+            },function error(response,staus) {
+                alert("Failed");
+               
+            });
+
+}
+   $scope.updateWalletInfo= function(){
+            var dataobj= {
+              fname: $scope.fname,
+              lname:$scope.lname,
+              emails:$scope.email,
+              mob:$scope.mob,
+             }
+          console.log(dataobj);
+         $http({
+        method : "POST",
+        url : "http://localhost:3030/user/"+$rootScope.id+"/wallet",
+        data: dataobj,
+        params: "info"
+    }).then(function success(response) {
+      
+                $scope.message=response.data.msg;
+                 alert($scope.message); 
+            },function error(response,staus) {
+                alert("Failed");
+               
+            });
+     }
+        $scope.updatPrimaryNumber= function(){
+            var dataobj= {
+              mob:$scope.mob
+             }
+          console.log(dataobj);
+         $http({
+        method : "POST",
+        url : "http://localhost:3030/user/"+$rootScope.id+"/wallet",
+        data: dataobj,
+        params: "phone"
+    }).then(function success(response) {
+      
+                $scope.message=response.data.msg;
+                 alert($scope.message); 
+            },function error(response,staus) {
+                alert("Failed");
+               
+            });
+     }
 
     }    
 ]);
