@@ -36,7 +36,12 @@ exports.checkCodice = (req,res,next) =>{
         
     });
     if(user.length==0){
-       res.send({ermsg:"The user does not exist"});
+       
+        
+        
+        
+        
+        .send({ermsg:"The user does not exist"});
        res.end();
     }
     else{
@@ -90,6 +95,7 @@ exports.create = function(request, response) {
               }
                     if(verified==true){
                          response.send({msg:"Confirm your ID",id:strJson});
+                        response.end();
             // show success page
                  users.sendAuthyLoginToken(authID,function(err) {
                 if (err) {
