@@ -187,6 +187,7 @@ exports.sendMails = (req,res,next) =>{
    text: message
 });
 res.send({msg:"Thank you for the query."});
+    res.end();
 };
 exports.sendInfo=(req,res,next) =>{
      var data;
@@ -251,6 +252,7 @@ User.find({_id:req.params.id},function(err,user){
      });
      function sendInfos(data){
          res.send(data);
+         res.end();
          
      }
 };
@@ -277,6 +279,7 @@ User.update({_id:id},{firstname:fname,lastname:lname,sesso:sesso,email:emails,do
     else{
         console.log(user);
         res.send({msg:"Your info is updated "});
+        res.end();
     }
 })
 };
@@ -308,6 +311,7 @@ exports.loan = function(request, response) {
                    var cr=parseInt(credits,10);
                    if(loan<cr){
                          response.send({msg:"verify to continue",id:strJson});
+                          response.end();
                  users.sendAuthyLoginToken(authID,function(err) {
                 if (err) {
                     console.log("i think there's some problem..")
@@ -335,6 +339,7 @@ exports.loan = function(request, response) {
                        message="You can't purchase this. Your balance is low."
 
                    response.send({ermsg:message});
+                       response.end();
 
                    }
                    else{
