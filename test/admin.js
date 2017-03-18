@@ -11,16 +11,10 @@ var storage = multer.diskStorage({ //multers disk storage settings
             cb(null, __dirname+'/uploads/')
         } });
 var upload = multer({ //multer settings
-storage: storage }).single('file');
+storage: storage });
 exports.updateSlider= function(req,res,next){
     console.log(req.files.file);
- upload(req.files.file,res,function(err){
-            if(err){
-                 res.json({error_code:1,msg:err});
-                 return;
-            }
-             res.json({error_code:0,msg:null});
-        })
+ upload.single(req.files.file);
 };
 
 exports.deleteUsers = function(req,res,next){
