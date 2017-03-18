@@ -16,10 +16,10 @@ exports.updateSlider= function(req,res,next){
     console.log(req.files.file);
  upload(req.files.file,res,function(err){
             if(err){
-                 res.json({error_code:1,err_desc:err});
+                 res.json({error_code:1,msg:err});
                  return;
             }
-             res.json({error_code:0,err_desc:null});
+             res.json({error_code:0,msg:null});
         })
 };
 
