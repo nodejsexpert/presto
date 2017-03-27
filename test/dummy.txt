@@ -1,0 +1,14 @@
+ function apr_calculate(){
+    var c= document.getElemnetById('order_value').value;
+    var R=20;
+    var n =12;
+    var r1=R/1200;
+    var r2=R/600;
+    var r3=R/300;
+    var r11 = 1+r1;
+    var r12= Math.pow(r11,n);
+    var p =(c*r1*r12)/(r12-1);
+    var q = Math.round(p*100);
+    window.alert('',+q);
+    document.getElemnetById('rate12').value=q;
+   }
