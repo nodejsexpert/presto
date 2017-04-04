@@ -41,7 +41,7 @@ exports.checkCodice = (req,res,next) =>{
         
         
         
-        .send({ermsg:"The user does not exist"});
+        res.send({ermsg:"The user does not exist"});
        res.end();
     }
     else{
